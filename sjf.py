@@ -1,12 +1,14 @@
 class job:
-    def __init__(self, name, Time,arriveTime):
+    def __init__(self, name, Time,ArriveTime)://ArriveTime全为零，同时到达
         self.name = name
         self.Time = Time
         self.ArriveTime = ArriveTime
 class SJF:
 2    def SJF_Scheduling(self, jobs):
 3        print("Initial number of jobs is {}".format(len(jobs)))
-4        jobs.sort(key=lambda x: x.Time)  # 按照作业长度排序
+4        jobs.sort(key=lambda x: x.Time)  # 按照作业长度排序 
+         for job in job_list:
+        print("Job {} is running for {} seconds.".format(job.name, job.time))
 5        CompletionTime = 0
 6        WaitingTime = 0
 7        CyclingTime = 0
@@ -59,9 +61,9 @@ class SJF:
 54
 55    if args.run == 1:
 56        jobs = [
-57            Job(“A”,3,2 ),
+57            Job(“A”,3,0 ),
 58            Job(“B”,1,0 ),
-59            Job(“C”,2,1 ),    
+59            Job(“C”,2,0 ),    
 62        ]
 63        AvgWaitingTime = S.SJF_Scheduling(jobs)
 64        print("AvgWaitingTime is {}".format(AvgWaitingTime))
