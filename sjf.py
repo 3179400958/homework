@@ -39,3 +39,37 @@ class SJF:
 34    def InputWithRecursion(self, n, index):
 35        if n == 0:
 36            AvgWaitingTime = SJF.SJF_Scheduling(SJF.jobs)
+37            print("Generate job list over")
+38            return
+39        else:
+40            index = index
+41            print("Job pid is {}".format(index))
+42            ArrivalTime = int(input("Input ArrivalTime: "))
+43            Time = int(input("Input Time: "))
+44            
+45            p = Job(index, ArrivalTime, Time)
+46            SJF.jobs.append(p)
+47
+48            self.InputWithRecursion(n-1, index+1)
+49
+50
+51if __name__ == '__main__':
+52
+53    S = SJF()
+54
+55    if args.run == 1:
+56        jobs = [
+57            Job(“A”,3,2 ),
+58            Job(“B”,1,0 ),
+59            Job(“C”,2,1 ),    
+62        ]
+63        AvgWaitingTime = S.SJF_Scheduling(jobs)
+64        print("AvgWaitingTime is {}".format(AvgWaitingTime))
+65
+66    elif args.run == 2:
+67        ProNum = input("Input Job num: ")
+68        S.InputFromOutside(int(ProNum))
+69
+70    else:
+71        ProNum = input("Input Job num: ")
+72        S.InputWithRecursion(int(ProNum), 1)
